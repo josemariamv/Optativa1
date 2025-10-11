@@ -18,6 +18,10 @@ print(vector3)
 print(vector5)
 print(vector6)
 
+# puedo modificar directamente cualquier elemento
+vector6[0] = "María Dolores"
+print(vector6)
+
 # recorriendo listas.
 #Sin obtener la posición
 for elemento in vector3:
@@ -66,7 +70,7 @@ print(elemento)
 # vector3.pop(50)
 
 # Elimina el elemento del argumento si existe
-vector3.remove("María")
+vector3.remove("María Dolores")
 print(vector3)
 # Elimina el elemento si existe. No es posicion.
 # Al usar remove si hay mas de un elemento solo elimina el primero
@@ -150,4 +154,3 @@ print(random.sample(alumnos, 3))
 #ordena los elementos de la lista al azar
 random.shuffle(alumnos)
 print(alumnos)
-
