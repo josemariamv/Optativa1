@@ -145,6 +145,11 @@ print(vector11[::-1])
 matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print(matriz[1][2])
 
+#Podemos asignar a n variables los elementos de una tupla de n elementos
+profesor = ["José María", "Morales Vázquez", 57]
+nombre, apellidos, edad = profesor
+print(apellidos, ",", nombre, "-", edad, "años")
+
 # Random y listas
 alumnos = ["María", "Pepe", "Juan", "Antonio"]
 #elige un elemento al azar
