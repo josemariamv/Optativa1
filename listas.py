@@ -145,7 +145,7 @@ print(vector11[::-1])
 matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print(matriz[1][2])
 
-#Podemos asignar a n variables los elementos de una tupla de n elementos
+#Podemos asignar a n variables los elementos de una lista de n elementos
 profesor = ["José María", "Morales Vázquez", 57]
 nombre, apellidos, edad = profesor
 print(apellidos, ",", nombre, "-", edad, "años")

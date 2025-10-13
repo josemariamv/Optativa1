@@ -28,6 +28,12 @@ print(tupla8)
 tupla9 = tuple("Hola Mundo")
 print(tupla9)
 
+# Y una tupla en una lista o en una cadena
+lista = list(tupla8)
+print(lista)
+texto = str(tupla8)
+print(texto)
+
 # Puedo anidar tuplas de forma jerárquica así:
 tupla10 = 13,14,tupla8,tupla4, 33
 print(tupla10)
@@ -38,6 +44,58 @@ print(tupla10)
 # Todos los métodos y opciones que funcionan en las listas y que no las
 # modifican funcionan también en las tuplas
 # (recorridos, emparedados, len, count, index, etc.)
+
+# devuelve la posición en la que se encuentra el elemento del argumento
+# si hay mas de uno devuelve la posición del primero
+tupla11 = (6, 7, 1, 4, 2, 4, 5, 6, 1)
+print(tupla11.index(1))
+# Si no está en la tupla da error
+# print(tupla11.index(3))
+
+if 7 in tupla11:
+    print("Está en la tupla")
+
+if 33 not in tupla11:
+    print("No está en la tupla")
+
+# recorridos
+#Sin obtener la posición
+for elemento in tupla11:
+    print(elemento)
+
+# Con la posición del elemento
+for i in range(len(tupla11)):
+    print(i, "-", tupla11[i])
+
+# Devuelve cuantas veces aparece el elelento del argumento
+print(tupla11.count(1))
+print(tupla11.count(3))
+
+# Podemos usar la sintaxis del emparedado:
+tupla12 = (1, 2, 3, 4, 5, 6, 7, 8)
+print(tupla12[3])
+print(tupla12[3:6])
+print(tupla12[:3])
+print(tupla12[:6])
+print(tupla12[::-1])
+
+#Podemos asignar a n variables los elementos de una tupla de n elementos
+profesor = ("José María", "Morales Vázquez", 57)
+nombre, apellidos, edad = profesor
+print(apellidos, ",", nombre, "-", edad, "años")
+
+# Los métodos de random también funcionan con tuplas
+import random
+alumnos = ("María", "Pepe", "Juan", "Antonio")
+#elige un elemento al azar
+print(random.choice(alumnos))
+#elige tres elementos al azar sin repetición
+print(random.sample(alumnos, 3))
+# salvo shuffle que la modifica!
+#random.shuffle(alumnos)
+
+
+
 
 
 
