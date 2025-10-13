@@ -79,3 +79,6 @@ print(profesPrimero.difference(profesSegundo))
 print(profesPrimero.symmetric_difference(profesSegundo))
 
 # tenemos mas métodos para operar con conjuntos. investígalos por ti mismo si te hacen falta!
+# Los métodos de random no funcionan con conjuntos
+
+
