@@ -42,7 +42,7 @@ print(tupla10)
 # si intentamos modificarla de cualquier forma nos dará una excepción
 #tupla8[0] = 5
 
-# pero si puedo modificar una lista dentro de una tupla
+# pero si puedo modificar una lista dentro de una tupla.
 print(tupla3)
 print(tupla3[7])
 tupla3[7][1] = 333

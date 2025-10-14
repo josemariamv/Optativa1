@@ -61,7 +61,7 @@ print(profesPrimero)
 profesPrimero.clear()
 print(profesPrimero)
 
-# puedo convertir una lista o una tupla en un conjunto
+# puedo convertir una lista o una tupla en un conjunto.
 lista3 = [1,2,3,4,5]
 conjunto3 = set(lista3)
 print(conjunto3)
