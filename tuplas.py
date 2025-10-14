@@ -7,7 +7,8 @@
 tupla1 = (1, 2, 3)
 print(tupla1)
 tupla2 = ("rojo", "verde", "azul")
-tupla3 = ("José María", "Morales", "Vazquez", 8, 10, 1968, "Informática", True)
+tupla3 = ("José María", "Morales", "Vazquez", 8, 10, 1968, "Informática", [1,2,3], True)
+print(tupla3)
 # así también
 tupla4 = 4,5,6
 print(tupla4)
@@ -40,6 +41,12 @@ print(tupla10)
 
 # si intentamos modificarla de cualquier forma nos dará una excepción
 #tupla8[0] = 5
+
+# pero si puedo modificar una lista dentro de una tupla
+print(tupla3)
+print(tupla3[7])
+tupla3[7][1] = 333
+print(tupla3)
 
 # Todos los métodos y opciones que funcionan en las listas y que no las
 # modifican funcionan también en las tuplas
