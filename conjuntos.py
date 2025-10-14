@@ -21,11 +21,12 @@ for profe in profesSegundo:
 #for i in range(len(profesSegundo)):
 #    print(i, "-", profesSegundo[i])
 
-# que quede claro que lo que no funciona es la referencia por orden a un elemento de un conjunto!
+# esto también falla
+# profesSegundo[0] = "Arturo"
+
+# pero que quede claro que lo que no funciona es la referencia por orden a un elemento de un conjunto!
 for i in range(len(profesSegundo)):
     print(i)
-
-# profesSegundo[0] = "Arturo"
 
 # Aunque son heterogeneos, un elemento de un conjunto no puede ser una lista
 # Debido a que el conjunto no es inmutable pero sus elementos si deben de serlo
