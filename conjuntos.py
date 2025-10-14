@@ -54,6 +54,18 @@ print(profesPrimero)
 profesPrimero.clear()
 print(profesPrimero)
 
+# puedo convertir una lista en un conjunto
+lista3 = [1,2,3,4,5]
+conjunto3 = set(lista3)
+print(conjunto3)
+# si tiene duplicados los elimina
+lista4 = [1,2,1,2,3,4,5,3,6]
+conjunto4 = set(lista4)
+print(conjunto4)
+# idem con cadenas de texto
+conjunto5 = set("Hola Mundo")
+print(conjunto5)
+
 # pero lo mas importante de los conjuntos son las operaciones especiales
 # que se pueden hacer:
 profesPrimero={"Ana", "Roberto", "Eva", "Juan", "María"}
