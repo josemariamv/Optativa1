@@ -51,9 +51,11 @@ print(profesPrimero)
 profesPrimero.discard("Ana")
 
 # pop recupera y elimina un elemento al azar
+print(profesPrimero)
 elemento = profesPrimero.pop()
 print(elemento)
 print(profesPrimero)
+# en realidad no es al azar. es siempre el primero, pero como el orden cambia cada vez es, digamos, pseudoazar
 
 # clear limpia el conjunto de elementos
 profesPrimero.clear()
