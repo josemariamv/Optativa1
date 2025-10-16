@@ -79,6 +79,10 @@ print(vector3)
 # Esto provoca una excepción porque el elemento no existe
 #vector3.remove("Paquita la del barrio")
 
+# Clear limpia todo el contenido de la lista
+vector3.clear()
+print(vector3)
+
 # ordena el vector de forma ascendente
 # cuidado: no es que devuelva un vector ordenado como haría si fuese un string
 # ordena el vector original. No devuelve nada
@@ -160,3 +164,19 @@ print(random.sample(alumnos, 3))
 random.shuffle(alumnos)
 print(alumnos)
 
+# Cuidado con las listas. Al asignar no se hace una copia diferente
+listaOriginal = [1,2,3]
+listaCopiada = listaOriginal
+listaCopiada.pop()
+print(listaOriginal)
+
+#Si quiero tener una copia uso el metodo copy
+listaOriginal2 = [1,2,3]
+listaCopiada2 = listaOriginal2.copy()
+listaCopiada2.pop()
+print(listaOriginal2)
+
+# reverse invierte la posicion de los elementos de la lista
+lista1 = ["Ana", "Pedro", "María"]
+lista1.reverse()
+print(lista1)

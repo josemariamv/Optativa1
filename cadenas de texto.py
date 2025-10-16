@@ -29,7 +29,7 @@ print(cadena[::-1])
 
 
 
-texto = "Hola mundo!"
+texto = "Hola mundo cruel"
 #texto[0] = "X"
 
 # Dos formas de recorrer una cadena
