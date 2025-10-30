@@ -34,6 +34,14 @@ def devuelveSaludo():
 
 print(devuelveSaludo())
 
+#Podemos devolver mas de un valor separándolo por comas
+
+def devuelveTresEnteros():
+    return 1, 2, 3
+
+num1, num2, num3 = devuelveTresEnteros()
+print(num1, num2, num3)
+
 # Los parámetros de las funciones se  pasan por valor cuando son variables simples.
 # Los cambios hechos en la función no se transmiten fuera
 
@@ -64,13 +72,16 @@ def saluda(nombre, mensaje="Hola", ):
 saluda("José María", "Qué tal estás")
 saluda("Margarita")
 
-# si tenemos mas de un parámetro por defecto tenemos que indicar cual es cual
-# si decidimos no usar el valor por defecto
+# Podemos tener mas de un parámetro por defecto. O incluso todos
+# Si usamos el nombre del paŕametro podemos incluso modificar el orden
+# Si no, tenemos que respetar el orden de la definción
 
 def otroSaludo(nombre, mensaje="Hola", despedida="Hasta la vista"):
     print(mensaje, nombre, despedida)
 
 otroSaludo("José María", mensaje="Qué tal estás")
+otroSaludo("Pablo", "Bienvenido")
+otroSaludo("Elise", "Bonjour", "")
 otroSaludo("Margarita", despedida="Vuelve pronto")
 otroSaludo("Enrique", despedida="Espero que estés bien", mensaje="Cuanto tiempo")
 
@@ -95,6 +106,22 @@ def muestraDatos(nombre, edad):
     print("Nombre:", nombre, "Edad: ", edad)
 
 muestraDatos(*datos)
+
+# Si ponemos dos asteriscos en el paso de parámetro enviamos el valor del parámetro y su nombre
+# como una pareja de clave y valor
+def parejas(**argumentos):
+    for clave, valor in argumentos.items():
+        print(clave, valor)
+
+parejas(a=5, b=20, c=23)
+
+# Idem si pasamos un diccionario
+def diccionario(**argumentos):
+    for clave, valor in argumentos.items():
+        print(clave, valor)
+
+d = {'a': 10, 'b':20}
+diccionario(**d) # 30
 
 
 
