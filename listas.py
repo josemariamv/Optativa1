@@ -164,6 +164,11 @@ print(random.sample(alumnos, 3))
 random.shuffle(alumnos)
 print(alumnos)
 
+# reverse invierte la posicion de los elementos de la lista
+lista1 = ["Ana", "Pedro", "María"]
+lista1.reverse()
+print(lista1)
+
 # Cuidado con las listas. Al asignar no se hace una copia diferente
 listaOriginal = [1,2,3]
 listaCopiada = listaOriginal
@@ -175,8 +180,3 @@ listaOriginal2 = [1,2,3]
 listaCopiada2 = listaOriginal2.copy()
 listaCopiada2.pop()
 print(listaOriginal2)
-
-# reverse invierte la posicion de los elementos de la lista
-lista1 = ["Ana", "Pedro", "María"]
-lista1.reverse()
-print(lista1)
