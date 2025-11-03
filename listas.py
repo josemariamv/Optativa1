@@ -31,6 +31,10 @@ for elemento in vector3:
 for i in range(len(vector4)):
     print(i, "-", vector4[i])
 
+# Y otra forma mas con la posición del elemento
+for index, valor in enumerate(vector4):
+    print(index, valor)
+
 # esto provoca una excepción por fuera de rango
 # for i in range(len(vector4)+1):
 #    print(i, "-", vector4[i])
@@ -180,3 +184,4 @@ listaOriginal2 = [1,2,3]
 listaCopiada2 = listaOriginal2.copy()
 listaCopiada2.pop()
 print(listaOriginal2)
+
