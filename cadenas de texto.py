@@ -41,6 +41,7 @@ for i in range(0,len(texto)):
 for i in range(len(texto)-1, -1, -1):
     print(i, " - ", texto[i])
 
+
 # convertir un número en string
 textoNumerico = str(55)
 print(textoNumerico + "€")
