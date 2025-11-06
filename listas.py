@@ -35,6 +35,7 @@ for i in range(len(vector4)):
 for index, valor in enumerate(vector4):
     print(index, valor)
 
+
 # Al igual que con las cadenas, usar range es mas versatil y permite recorridos al revés
 for i in range(len(vector4)-1, -1, -1):
     print(i, " - ", vector4[i])
