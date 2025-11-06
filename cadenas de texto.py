@@ -27,8 +27,6 @@ print(cadena)
 #dar la vuelta a una cadena con los rebanados
 print(cadena[::-1])
 
-
-
 texto = "Hola mundo cruel"
 #texto[0] = "X"
 
@@ -37,6 +35,10 @@ for caracter in texto:
     print(caracter)
 
 for i in range(0,len(texto)):
+    print(i, " - ", texto[i])
+
+# La segunda es mas versatil porque me permite recorrerla al revés, a saltos, etc.
+for i in range(len(texto)-1, -1, -1):
     print(i, " - ", texto[i])
 
 # convertir un número en string

@@ -35,9 +35,22 @@ for i in range(len(vector4)):
 for index, valor in enumerate(vector4):
     print(index, valor)
 
+# Al igual que con las cadenas, usar range es mas versatil y permite recorridos al revés
+for i in range(len(vector4)-1, -1, -1):
+    print(i, " - ", vector4[i])
+
 # esto provoca una excepción por fuera de rango
 # for i in range(len(vector4)+1):
 #    print(i, "-", vector4[i])
+
+# de esta forma tan original llenamos una lista con 5 números aleatorios entre el 1 y el 6
+aleatorios = [random.randint(1,6) for _ in range(5)]
+print(aleatorios)
+
+# o los 10 primeros números naturales
+secuencia = [i for i in range(1,11)]
+print(secuencia)
+
 
 # Añade un elemento al final de la lista
 vector4.append("Calle del Suspiro Verde, 3")
