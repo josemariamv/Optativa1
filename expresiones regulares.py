@@ -67,3 +67,7 @@ if re.fullmatch(r"[0-9]{4} [A-Z]{3}", "6311 MXP"):
 else:
     print("No es válido")
 
+if re.fullmatch(r"(\w+)", "ban_derola9"):
+    print("Es válida caracteres alfanuméricos. el único símbolo permitido es el _")
+else:
+    print("No es válido")
