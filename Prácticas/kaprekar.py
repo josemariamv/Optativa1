@@ -36,3 +36,4 @@ else:
             print("Constante de kaprekar obtenida con ", contador, " operaciones")
 
 
+
