@@ -87,7 +87,7 @@ otroSaludo("Enrique", despedida="Espero que estés bien", mensaje="Cuanto tiempo
 
 # Podemos definir funciones con un número variable de argumentos.
 # Definimos el último parámetro de la función poniendo un * delante del nombre
-# Y la función recibe los datos como una tupla
+# Y la función recibe los datos como una tupla. La tupla puede estar vacía si no se envía ningún argumento
 
 def imprimeFicha(tipo, *datos):
     print(tipo)
@@ -96,6 +96,7 @@ def imprimeFicha(tipo, *datos):
 
 imprimeFicha("Profesor", "José María", 57, "Informática", "jmoralesvazquez@educa.madrid.org")
 imprimeFicha("Alumno", "Rodrigo", "2DAW")
+imprimeFicha("Alumno", "López")
 
 # También podemos enviar los parámetros a una función "empaquetados" en una lista o en una tupla
 # En este caso ponemos el * en la llamada a la función, delante de la lista o tupla
