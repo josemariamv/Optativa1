@@ -52,11 +52,6 @@ if re.fullmatch(r"[a-z]+", "abc"):
 else:
     print("No es válido")
 
-if re.fullmatch(r"[^5]", "5"):
-    print("Cualquier cosa que no sea un 5")
-else:
-    print("No es válido")
-
 if re.fullmatch(r"[1-9]|1[0-2]", "22"):
     print("Es un mes")
 else:
@@ -71,3 +66,13 @@ if re.fullmatch(r"(\w+)", "ban_derola9"):
     print("Es válida caracteres alfanuméricos. el único símbolo permitido es el _")
 else:
     print("No es válido")
+
+if re.fullmatch(r"[^579]", "7"):
+    print("Cualquier cosa que no sea un 5, un 7 o un 9")
+else:
+    print("No es válido")
+
+if re.fullmatch(r"(?!HO)[A-Z]{2}$", "XO"):
+    print("Cadena de dos caracteres en mayúsculas que no sean HO")
+else:
+    print("No son dos caracteres en mayúsculas o es HO")
