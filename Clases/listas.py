@@ -151,8 +151,26 @@ print(vector10.count(3))
 cadenaConvertida = list("Hola mundo")
 print(cadenaConvertida)
 
+# convierte una cadena en una lista. Debe de existir un separador para los elementos
+# por defecto es un espacio
+texto1 = "Hola mundo cruel"
+listaConvertida1 = texto1.split()
+print(listaConvertida1)
+
+texto2 = "192.168.5.55"
+listaConvertida2 = texto2.split('.')
+print(listaConvertida2)
+
 # Convierte una lista en una cadena
-listaConvertida = str(["Hola", "Mundo", "Cruel"])
+# cuidado: el resultado parece igual que la lista, pero no lo es: es una cadena de caracteres
+listaConvertida = str([1,2,3,4,5,6])
+print(listaConvertida)
+# Podemos usar este truco para presentar una lista como una serie de elementos separados por coma de forma fácil
+listaConvertida = listaConvertida.replace('[', '')
+listaConvertida = listaConvertida.replace(']', '')
+print(listaConvertida)
+# o con otro separador entre los elementos
+listaConvertida = listaConvertida.replace(', ', '-')
 print(listaConvertida)
 
 # Podemos usar la sintaxis del emparedado con las listas

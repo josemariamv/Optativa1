@@ -30,4 +30,4 @@ def divisoresComunes(n1, n2):
 divisoresComunes(22, 16)
 divisoresComunes(33, 17)
 divisoresComunes(1725, 2500)
-divisoresComunes(22.5, 0)
+divisoresComunes(22.5, 12)
