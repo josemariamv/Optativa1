@@ -15,17 +15,20 @@ if cadena.isalnum():
 
 #Existen además isdecimal, isnumeric, isspace e isprintable, etc.
 
+# type me devuelve el tipo de dato de un objeto
+print(type("HOLA"))
+
+# isinstance es un método que me permite comprobar si un dato pertenece a un determinado tipo de dato
 if isinstance(5,int):
     print("Es un entero")
 else:
     print("No es un entero")
 
-if not isinstance(5.5,float):
+nota = 5.5
+if not isinstance(nota,float):
     print("No es un número con decimales")
 else:
     print("Es un número con decimales")
-
-print(type("HOLA"))
 
 if isinstance("hola",str):
     print("Es un texto")
