@@ -124,5 +124,15 @@ def diccionario(**argumentos):
 d = {'a': 10, 'b':20}
 diccionario(**d) # 30
 
+# En python se puede inidicar, a título informativo, los valores
+# que recibe y devuelve una función, pero no es mandatorio
+def prueba(numero: int) -> str:
+    #return str(numero)
+    return int(numero)
+
+print(prueba(5))
+print(prueba(5.5))
+
+
 
 

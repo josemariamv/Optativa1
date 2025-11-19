@@ -70,3 +70,10 @@ print(texto.replace("o", "x", 1))
 #La cadena original no se ha alterado
 print(texto)
 
+# zfill llena con ceros a la izquierda hasta completar el tamaño que se pasa como argumento
+# Útil para formatear números
+
+codigo = "345"
+codigo = codigo.zfill(10)
+print(codigo)
+
