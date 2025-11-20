@@ -48,7 +48,7 @@ else:
     print("No es un DNI válido")
 
 if re.fullmatch(r"[a-z]+", "abc"):
-    print("Cualquier secuencia de números sin letras. Uno mínimo")
+    print("Cualquier secuencia de letras minúsculas. Una mínimo")
 else:
     print("No es válido")
 
@@ -57,7 +57,7 @@ if re.fullmatch(r"[1-9]|1[0-2]", "22"):
 else:
     print("No es válido")
 
-if re.fullmatch(r"[0-9]{4} [A-Z]{3}", "6311 MXP"):
+if re.fullmatch(r"[0-9]{4}[-|\s]?[A-Z]{3}", "6311*MXP"):
     print("Es una matrícula válida")
 else:
     print("No es válido")
@@ -72,7 +72,9 @@ if re.fullmatch(r"[^579]", "7"):
 else:
     print("No es válido")
 
-if re.fullmatch(r"(?!HO)[A-Z]{2}$", "XO"):
+# ?! es un "negative lookahead". Quiere decir que si lo que viene a continuación coincide con lo que acompaña
+# a este signo no se dará como válido. Es una forma de hacer exclusiones
+if re.fullmatch(r"(?!HO)[A-Z]{2}", "XO"):
     print("Cadena de dos caracteres en mayúsculas que no sean HO")
 else:
     print("No son dos caracteres en mayúsculas o es HO")
