@@ -50,7 +50,7 @@ del empleado1.nombre
 # del num1
 # print(num1)
 
-# Los métodos mágicos o dunder nos permiten redefinir en nuestras clases algunos de los métodos comunes
+# Los métodos mágicos o métodos dunder (double underscore) nos permiten redefinir en nuestras clases algunos de los métodos comunes
 # de python que funcionan con todos los tipos de datos comunes vistos
 class Prueba():
     def __len__(self):
