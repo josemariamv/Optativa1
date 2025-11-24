@@ -163,3 +163,42 @@ print(mascota1.__secretisimo)
 
 
 # Esta convención sirve igualmente para los métodos y no solo para los atributos
+
+# En python la sobrecargar de funciones no es necesaria por razones obvias
+class Perro:
+    numPerros = 0
+
+    def __init__(self, n="Bobby"):
+        self.nombre = n
+
+    def llamar(self):
+        return("Ey " + self.nombre + " ¡Ven aquí!")
+
+    def funcionChorra(self, parametro):
+        if isinstance(parametro,int):
+            print("Hago algo con un entero")
+        elif isinstance(parametro,float):
+            print("Hago algo con un número con decimales")
+        elif isinstance(parametro,str):
+            print("Hago algo con un string")
+        else:
+            print("Hago algo con otra cosa")
+
+    def funcionChorra2(self, *parametros):
+        if len(parametros)==1:
+            print("Haz algo con 1 parametro")
+        elif len(parametros)==2:
+            print("Haz algo con dos parametros")
+        else:
+            print("Haz algo con", len(parametros), "parametros")
+
+mascota1 = Perro("Leo")
+mascota1.funcionChorra(3)
+mascota1.funcionChorra(3.3)
+mascota1.funcionChorra("Hola")
+mascota1.funcionChorra([1,2,3])
+
+mascota1.funcionChorra2(1)
+mascota1.funcionChorra2(1, "Hola")
+mascota1.funcionChorra2(1, "Hola", [1,2,3])
+

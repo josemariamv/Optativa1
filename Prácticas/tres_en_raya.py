@@ -1,7 +1,17 @@
+turno = "X"
+numJugador = 1
+while True:
+    posicion = int(input("Jugador " + str(numJugador) +  " ("+turno+"): "))
+    if numJugador == 1:
+        turno = "O"
+        numJugador = 2
+    else:
+        turno = "X"
+        numJugador = 1
+
 print("-------------")
-print("| 1 | 2 | 3 |")
-print("-------------")
-print("| 4 | 5 | 6 |")
-print("-------------")
-print("| 7 | 8 | 9 |")
-print("-------------")
+for i in range(3):
+    for j in range(3):
+        print("|",end="")
+        print("   ", end="")
+    print("|\n-------------")
