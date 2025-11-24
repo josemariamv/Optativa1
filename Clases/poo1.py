@@ -154,4 +154,12 @@ print(mascota1._secreto)
 # pero se puede acceder igualmente así
 print(mascota1._Perro__secretisimo)
 
+# Si hacemos esto no da error pero no nos cambia el valor
+mascota1.__secretisimo = "Boniterrimo"
+print(mascota1._Perro__secretisimo)
+# Y nos crea otra variable diferente
+print(mascota1.__secretisimo)
+
+
+
 # Esta convención sirve igualmente para los métodos y no solo para los atributos
