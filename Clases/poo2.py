@@ -88,12 +88,26 @@ class Persona:
         self.apellidos = apellidos
 
     def __str__(self):
-        return(self.apellidos+", "+ self.nombre)
+        return self.apellidos+", "+ self.nombre
 
 persona1 = Persona("José María", "Morales Vázquez")
 print(str(persona1))
 
+class Cuentas:
+    def __init__(self, saldo, titular):
+        self.saldo = saldo
+        self.titular =[]
+        self.titular.append(titular)
 
+    def __add__ (self, c2):
+        self.saldo = self.saldo + c2.saldo
+        self.titular = self.titular + c2.titular
+        return self
 
+libreta1 = Cuentas(1234.55, "José María Morales")
+libreta2 = Cuentas(345.66, "María Rodríguez")
 
-
+print(libreta1.titular)
+libreta1 = libreta1 + libreta2
+print(libreta1.saldo)
+print(libreta1.titular)
