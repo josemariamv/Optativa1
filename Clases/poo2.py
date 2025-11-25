@@ -82,7 +82,16 @@ __gt__(self, other): Implementa el comportamiento para el operador > (mayor que)
 
 __iter__(self) y __next__(self): Permiten crear un iterador para el objeto, permitiendo su uso en bucles for
 '''
+class Persona:
+    def __init__(self, nombre, apellidos):
+        self.nombre = nombre
+        self.apellidos = apellidos
 
+    def __str__(self):
+        return(self.apellidos+", "+ self.nombre)
+
+persona1 = Persona("José María", "Morales Vázquez")
+print(str(persona1))
 
 
 
