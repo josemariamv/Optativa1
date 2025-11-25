@@ -160,11 +160,9 @@ print(mascota1._Perro__secretisimo)
 # Y nos crea otra variable diferente
 print(mascota1.__secretisimo)
 
-
-
 # Esta convención sirve igualmente para los métodos y no solo para los atributos
 
-# En python la sobrecargar de funciones no es necesaria por razones obvias
+# En python la sobrecarga de funciones no es necesaria por razones obvias
 class Perro:
     numPerros = 0
 
