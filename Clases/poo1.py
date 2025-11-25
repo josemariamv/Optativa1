@@ -199,4 +199,3 @@ mascota1.funcionChorra([1,2,3])
 mascota1.funcionChorra2(1)
 mascota1.funcionChorra2(1, "Hola")
 mascota1.funcionChorra2(1, "Hola", [1,2,3])
-
