@@ -104,6 +104,12 @@ class Cuentas:
         self.titular = self.titular + c2.titular
         return self
 
+    def __gt__ (self, c2):
+        mayor = True
+        if self.saldo <= c2.saldo:
+            mayor = False
+        return mayor
+
 libreta1 = Cuentas(1234.55, "José María Morales")
 libreta2 = Cuentas(345.66, "María Rodríguez")
 
@@ -111,3 +117,6 @@ print(libreta1.titular)
 libreta1 = libreta1 + libreta2
 print(libreta1.saldo)
 print(libreta1.titular)
+
+if libreta1 > libreta2:
+    print("El saldo de libreta1 es mayor")
