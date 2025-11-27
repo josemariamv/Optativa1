@@ -77,7 +77,6 @@ profesor1.queSoy2()
 profesor1.queSoy3()
 
 class Loquesea:
-
     # Pycharm no genera automaticamente getters y setters pero tiene los siguientes atajos:
     # prop e Intro genera la plantilla del getter
     # props e Intro genera la plantilla del getter y el setter
