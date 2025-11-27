@@ -90,3 +90,31 @@ class Loquesea:
         pass
     '''
 
+# clases abstractas, aquellas que tienen algún método abstracto
+from abc import ABCMeta
+from abc import abstractmethod
+
+class Abstracta(metaclass=ABCMeta):
+    def metodoNormal(self, dato):
+        print(dato)
+
+    @abstractmethod
+    def metodoAbstracto(self):
+        pass
+#esto da error
+# nuevo = Abstracta()
+# nuevo.metodoNormal("Esto no funciona")
+
+class Hija(Abstracta):
+    def metodoAbstracto(self):
+        print("funciona")
+
+nuevo2 = Hija()
+nuevo2.metodoNormal("Esto si funciona")
+
+# El decorador @abstracmethod puede combinarse con cualquier de los otros vistos. Se ponen uno bajo el otro:
+
+# @staticmethod
+# @abstractmethod
+# def ladra():
+#     return ("Guau")
