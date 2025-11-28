@@ -60,6 +60,7 @@ class Funcionario():
 
 class Profesor(Persona, Funcionario):
     def queSoy2(self):
+        super().queSoy2()
         Funcionario.queSoy2(self)
 
     def queSoy3(self):
