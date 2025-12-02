@@ -24,16 +24,16 @@ class DiasSemana:
         return self
 
     def __next__(self):
-        #if self.indice >= len(self.dias):
-        #    raise StopIteration
-        # dia_actual = self.dias[self.indice]
-        # self.indice += 1
-
+        if self.indice >= len(self.dias):
+            raise StopIteration
         dia_actual = self.dias[self.indice]
-        if self.indice ==6:
-            self.indice = 0
-        else:
-            self.indice += 1
+        self.indice += 1
+
+        # dia_actual = self.dias[self.indice]
+        # if self.indice ==6:
+        #     self.indice = 0
+        # else:
+        #    self.indice += 1
 
         return dia_actual
 

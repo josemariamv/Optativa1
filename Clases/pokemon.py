@@ -1,37 +1,36 @@
 import random
 
-
 class Pokemon:
     def __init__(self, nombre):
-        self.__nombre__ = nombre
-        self.__evolucion__ = None
-        self.__pv__ = random.randint(50,100)
+        self.__nombre = nombre
+        self.__evolucion = None
+        self.__pv = random.randint(50,100)
 
     def mostrar(self):
-        print(self.__nombre__, "-", self.__pv__)
+        print(self.__nombre, "-", self.__pv)
 
     def setEvolucion(self, pokemon):
-        self.__evolucion__ = pokemon
+        self.__evolucion = pokemon
 
     def evoluciona(self):
-        if self.__evolucion__ == None:
+        if self.__evolucion == None:
             print("Este pokemon no tiene evolucion")
             devolver = self
         else:
-            devolver = self.__evolucion__
-            devolver.__pv__ += self.__pv__
+            devolver = self.__evolucion
+            devolver.__pv += self.__pv
         return devolver
 
     def combateContra(self, pokemon):
         danno = random.randint(25,75)
-        pokemon.__pv__ -=danno;
-        if pokemon.__pv__ <=0:
-            print(pokemon.__nombre__, "ha sido derrotado")
+        pokemon.__pv -=danno;
+        if pokemon.__pv <=0:
+            print(pokemon.__nombre, "ha sido derrotado")
         else:
             danno = random.randint(25,75)
-            self.__pv__ -=danno;
-            if self.__pv__ <=0:
-                print(self.__nombre__, "ha sido derrotado")
+            self.__pv -=danno;
+            if self.__pv <=0:
+                print(self.__nombre, "ha sido derrotado")
             else:
                 print("El combate no ha concluido con la victoria de ninguno")
 
