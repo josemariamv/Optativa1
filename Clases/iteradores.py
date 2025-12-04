@@ -23,9 +23,12 @@ class DiasSemana:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self, stop=None):
         if self.indice >= len(self.dias):
-            raise StopIteration
+            if stop==None:
+                raise StopIteration
+            else:
+                print(stop)
         dia_actual = self.dias[self.indice]
         self.indice += 1
 
@@ -46,6 +49,6 @@ print(next(iterador))
 print(next(iterador))
 print(next(iterador))
 print(next(iterador))
-print(next(iterador))
-print(next(iterador))
+print(next(iterador, "STOP"))
+print(next(iterador, "STOP"))
 
