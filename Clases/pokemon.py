@@ -34,26 +34,9 @@ class Pokemon:
             else:
                 print("El combate no ha concluido con la victoria de ninguno")
 
-p1 = Pokemon("Bulbasaur")
-p2 = Pokemon("Venasaur")
-p3 = Pokemon("Ivysaur")
-p4 = Pokemon("Pikachu")
-
-p1.setEvolucion(p2)
-p2.setEvolucion(p3)
-
-p1.mostrar()
-
-p1 = p1.evoluciona()
-p1.mostrar()
-
-p1=p1.evoluciona()
-p1.mostrar()
-
-p1=p1.evoluciona()
-p1.mostrar()
-
-p4.combateContra(p1)
-p4.mostrar()
-p1.mostrar()
-p4.combateContra(p1)
+class Equipo:
+    def __init__(self, nombre, *pokemons):
+        self.__entrenador = nombre
+        self.__equipo = []
+        for pokemon in pokemons:
+            self.__equipo.append(pokemon)
