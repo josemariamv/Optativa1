@@ -173,6 +173,12 @@ print(listaConvertida)
 listaConvertida = listaConvertida.replace(', ', '-')
 print(listaConvertida)
 
+# Con join convertimos la cadena en una lista pero añadiendo un separador
+# entre los elementos de la misma
+alumnos= ["Pedro", "Ana", "María"]
+alumnos = ", ". join(alumnos)
+print(alumnos)
+
 # Podemos usar la sintaxis del emparedado con las listas
 vector11 = [1, 2, 3, 4, 5, 6, 7, 8]
 print(vector11[3])
