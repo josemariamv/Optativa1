@@ -223,3 +223,4 @@ listaCopiada2 = listaOriginal2.copy()
 listaCopiada2.pop()
 print(listaOriginal2)
 
+
