@@ -14,7 +14,10 @@ print("Hora específica:", mi_hora)
 mi_hora = time(14)
 print("Hora específica:", mi_hora)
 
-# Fecha y hora actual
+#no existe un time.now()
+# hora_actual = time.now()
+
+# pero si un Fecha y hora actual
 ahora = datetime.now()
 print("Fecha y hora actual:", ahora)
 
