@@ -10,20 +10,24 @@ class Persona:
 p1 = Persona("José María", "Morales")
 p1.mostrarPersona()
 
-fichero = open("fichero6.txt", "bw")
+fichero = open("fichero6.bin", "bw")
 pickle.dump(p1,fichero)
 fichero.close()
 
-fichero = open("fichero6.txt", "rb")
+fichero = open("fichero6.bin", "rb")
 p2 = pickle.load(fichero)
 fichero.close()
 
 p2.mostrarPersona()
 
 # para escribir varios objetos y recuperarlos sin saber cuantos son
+fichero = open("fichero7.bin", "wb")
 lista = [p1,p1]
 pickle.dump(lista,fichero)
+fichero.close()
 
+fichero = open("fichero7.bin", "rb")
 lista2 = pickle.load(fichero)
 for p in lista2:
     p.mostrarPersona()
+fichero.close()
