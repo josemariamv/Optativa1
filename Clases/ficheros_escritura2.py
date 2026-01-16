@@ -3,7 +3,7 @@
 # offset indica el desplazamiento en bytes
 # origen indica desde donde se cuenta el desplazamiento y es opcional
 # 0 desde el inicio del archivo, 2 desde el final del archivo y 1 desde la posición actual del cursor
-# seek(0) va al inicio
+# seek(0,0) va al inicio (o seek(0))
 # seek(0,2) va al final
 # En archivos abiertos en modo texto no se permiten algunos tipos de desplazamientos
 # El metodo tell devuelve la posicion actual del cursor
