@@ -1,53 +1,50 @@
 # seek nos permite acceso aleatorio
 # seek (offset, origen)
-# offset indica el desplazamiento en bytes
-# origen indica desde donde se cuenta el desplazamiento y es opcional
-# 0 desde el inicio del archivo, 2 desde el final del archivo y 1 desde la posición actual del cursor
-# el modo 1 sólo funciona con archivos binarios
-# seek(0) va al inicio
+# seek(0) va al inicio del archivo
 # seek(0,2) va al final
-# seek(n) se posiciona
-
-
+# seek(n) se posiciona en el lugar indicado (contando siempre desde el principio en ficheros de texto)
 # El metodo tell devuelve la posicion actual del cursor
+# Combinando seek y tell podemos movernos a una posición concreta contando desde el final.
+# Por ejemplo, si queremos movernos a 10 caracteres del final usamos f.seek(f.tell()-10)
+# seek tiene un tercer método que nos permite movernos a una posición relativa al sitio donde se situa el cursor
+# pero no funciona con ficheros de texto. Solo con ficheros binarios
 
+# Creamos un fichero para el ejemplo
 with open("ejemplo.txt", "w") as f:
     f.write("Hola Mundo Python")
 
-# Usar seek en modo lectura
+# Probamos como funciona seek
 with open("ejemplo.txt", "r") as f:
-     print(f"Posición inicial: {f.tell()}")  # tell() devuelve la posición actual
+     print(f"Posición inicial: {f.tell()}")  # debería de ser cero
 
-     # Leer los primeros 4 caracteres
+     # Leemos los primeros 4 caracteres y volvemos a ver la posición
      print("Contenido:", f.read(4))
      print(f"Posición después de leer: {f.tell()}")
 
-     # Mover el puntero al inicio (posición 0)
+     # Movemos el cursor al inicio y leemos el fichero completo.
      f.seek(0)
      print(f"Posición tras seek(0): {f.tell()}")
      print("Lectura completa:", f.read())
+     # El cursor ahora se siturará al final:
+     print(f"Posición tras leer el fichero entero: {f.tell()}")
 
-# Modificar una palabra específica
+# Abrimos ahora en lectura y escritura. El cursor se situa al inicio
 with open("ejemplo.txt", "r+") as f:
-     # Mover el puntero a la posición 5 (donde empieza "Mundo")
+     # Movemos el cursor a la posición 5 (donde empieza "Mundo")
      f.seek(5)
-     # Sobrescribir "Mundo" con "Todos"
+     # Sobrescribimos "Mundo" con "Todos"
      f.write("Todos")
-
-     # Volver al inicio para ver el resultado
+     # Volvemos al inicio y leemos el fichero entero para ver el resultado
      f.seek(0)
-     print("Archivo modificado:", f.read())
+     print("Archivo modificado 1:", f.read())
 
-# Modificar una palabra al final
-with open("ejemplo.txt", "r+") as f:
-     # Mover el puntero al final
+     # Movemos ahora el cursor al final
      f.seek(0,2)
+     # Nos posicionamos donde empieza la palabra "Python"
      f.seek(f.tell()-6)
-
-     # Sobrescribir "Python" con "Java!!!"
+     # Sobrescribimos "Python" con "Java!!!"
      f.write("Java!!!")
-
-     # Volver al inicio para ver el resultado
+     # Volvemos al inicio para ver el resultado
      f.seek(0)
-     print("Archivo modificado:", f.read())
+     print("Archivo modificado 2:", f.read())
 
