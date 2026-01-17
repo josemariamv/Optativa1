@@ -3,27 +3,51 @@
 # offset indica el desplazamiento en bytes
 # origen indica desde donde se cuenta el desplazamiento y es opcional
 # 0 desde el inicio del archivo, 2 desde el final del archivo y 1 desde la posición actual del cursor
+# el modo 1 sólo funciona con archivos binarios
 # seek(0) va al inicio
 # seek(0,2) va al final
-# En archivos abiertos en modo texto no se permiten algunos tipos de desplazamientos
+# seek(n) se posiciona
+
+
 # El metodo tell devuelve la posicion actual del cursor
 
-# Abrir el archivo en modo lectura/escritura (r+)
-with open("quijote.txt", "a+", encoding="utf-8") as fichero:
-     # 1. Leer el contenido actual
-     fichero.seek(0)
-     contenido = fichero.read()
-     print(f"Contenido original: {contenido}")
+with open("ejemplo.txt", "w") as f:
+    f.write("Hola Mundo Python")
 
-     # 2. Mover el puntero al final si se desea añadir texto
-     # O al principio (0) para sobrescribir
-     fichero.seek(0,2)
+# Usar seek en modo lectura
+with open("ejemplo.txt", "r") as f:
+     print(f"Posición inicial: {f.tell()}")  # tell() devuelve la posición actual
 
-     # 3. Escribir nuevos datos
-     fichero.write("\nNueva línea añadida.")
+     # Leer los primeros 4 caracteres
+     print("Contenido:", f.read(4))
+     print(f"Posición después de leer: {f.tell()}")
 
-     print(f"Posicion: {fichero.tell()}")
+     # Mover el puntero al inicio (posición 0)
+     f.seek(0)
+     print(f"Posición tras seek(0): {f.tell()}")
+     print("Lectura completa:", f.read())
 
-     # 4. Volver al inicio para leer todo de nuevo
-     fichero.seek(0)
-     print(f"Contenido actualizado:\n{fichero.read()}")
+# Modificar una palabra específica
+with open("ejemplo.txt", "r+") as f:
+     # Mover el puntero a la posición 5 (donde empieza "Mundo")
+     f.seek(5)
+     # Sobrescribir "Mundo" con "Todos"
+     f.write("Todos")
+
+     # Volver al inicio para ver el resultado
+     f.seek(0)
+     print("Archivo modificado:", f.read())
+
+# Modificar una palabra al final
+with open("ejemplo.txt", "r+") as f:
+     # Mover el puntero al final
+     f.seek(0,2)
+     f.seek(f.tell()-6)
+
+     # Sobrescribir "Python" con "Java!!!"
+     f.write("Java!!!")
+
+     # Volver al inicio para ver el resultado
+     f.seek(0)
+     print("Archivo modificado:", f.read())
+
