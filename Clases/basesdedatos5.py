@@ -46,6 +46,7 @@ try:
         print(fila)
     # si no ejecutamos un commit no se guardan los cambios
     #connect.commit()
+
     cursor.close()
     connect.close()
 except mysql.connector.Error as err:
