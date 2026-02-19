@@ -37,6 +37,10 @@ for elemento in dic4:
     print(dic4[elemento])
 
 # ambos
+for elemento in dic4:
+    print(elemento, ":", dic4.get(elemento))
+
+# o así:
 for clave, valor in dic4.items():
     print(clave, ":", valor)
 
