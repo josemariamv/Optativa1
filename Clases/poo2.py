@@ -4,18 +4,23 @@ class CuentaCorriente:
         self.propietario = propietario
         self.__saldo = saldoInicial
     # el decorador property nos permite definir un método que se comporta como un atributo
+    # lo usarmos para los getters
     @property
     def saldo(self):
         return self.__saldo
-    # para modificar una propiedad definida de esta forma definimos método con el decorador setter
+    # para modificar una propiedad definida de esta forma definimos metodo con el decorador setter
     @saldo.setter
     def saldo(self, valor):
         self.__saldo = valor
 
 cuenta1 = CuentaCorriente("ES3212345678901234567890", "José María Morales", 1200.00)
-print(cuenta1.saldo)
 # esto da error
 #print(cuenta1.saldo())
+
+# usamos los getters y setters así definidos como si fuesen atributos pero, en realidad, son métodos
+print(cuenta1.saldo)
+cuenta1.saldo = 2400.00
+print(cuenta1.saldo)
 
 # parece que no tiene mucho sentido? Pues es una de las pocas formas que
 # tenemos de proteger de modificaciones directas un atributo. Esto también da error

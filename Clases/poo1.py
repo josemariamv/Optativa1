@@ -42,8 +42,9 @@ print(mascota1.nombre)
 print(mascota2.nombre)
 
 # Añadimos un atributo de clase
+# sería el equivalente al static de java
 class Perro:
-    #Los definimos fuera de los métodos
+    #Los definimos fuera de los métodos y sin el self
     numPerros = 0
 
     def __init__(self, n="Bobby"):
@@ -78,11 +79,12 @@ class Perro:
         return("Ey " + self.nombre + " ¡Ven aquí!")
 
     # Anteponemos el decorador de clase classmethod
-    # y usamos cls en lugar de self o el nomre de la clase
-    # desde un método de clase no podemos acceder a los atributos de instancia
+    # y usamos cls en lugar de self o el nombre de la clase
+    # desde un metodo de clase no podemos acceder a los atributos de instancia pero si a los de la clase
     @classmethod
     def cuantosPerros(cls):
-        return(cls.numPerros)
+        #return cls.numPerros
+        return Perro.numPerros
 
 mascota1 = Perro("Cuchi cuchi")
 mascota2 = Perro("Sultán")
@@ -106,9 +108,10 @@ class Perro:
     @classmethod
     def cuantosPerros(cls):
         return(cls.numPerros)
+
     # Anteponemos el decorador staticmethod
     # No usamos ni self ni cls
-    # No podemos modificar ni atributos de instancia ni de clase
+    # No podemos acceder a atributos de instancia ni de clase
     @staticmethod
     def ladra():
         return("Guau")
