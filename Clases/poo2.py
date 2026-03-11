@@ -1,4 +1,7 @@
 class CuentaCorriente:
+
+    __retenciones = 15
+
     def __init__(self, iban, propietario, saldoInicial=0):
         self.iban = iban
         self.propietario = propietario
@@ -13,9 +16,24 @@ class CuentaCorriente:
     def saldo(self, valor):
         self.__saldo = valor
 
+    # Un atributo de clase también puede (y debe) de ser privado
+    @classmethod
+    def verRetenciones(cls):
+        print(cls.__retenciones)
+
+    # Puedo definir un getter o un setter para un atributo de clase
+    # Para ello tengo que usar los dos decoradores
+    @classmethod
+    @property
+    def retenciones(cls):
+        return cls.__retenciones
+
 cuenta1 = CuentaCorriente("ES3212345678901234567890", "José María Morales", 1200.00)
 # esto da error
 #print(cuenta1.saldo())
+
+CuentaCorriente.verRetenciones()
+print(CuentaCorriente.retenciones)
 
 # usamos los getters y setters así definidos como si fuesen atributos pero, en realidad, son métodos
 print(cuenta1.saldo)
