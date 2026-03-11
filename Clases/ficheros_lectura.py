@@ -4,7 +4,7 @@
 #Modos: r, t (por defecto), w (lo elimina si existe), x (falla si existe), a (añade si existe y lo crea si no), b, + (lectura y escritura)
 try:
     quijote = open('quijote.txt', 'rt')
-    piratas = open('/mnt/temp/piratas.txt')
+    piratas = open('quijote.txt')
     #El método read() lee el fichero completo
     print(quijote.read())
     texto = piratas.read()
@@ -13,11 +13,19 @@ try:
     quijote.close()
     piratas.close()
 
+    # así leemos línea a línea hasta el final del fichero
     quijote = open('quijote.txt')
     linea=quijote.readline()
     while linea !="":
         print(linea)
         linea = quijote.readline()
+    quijote.close()
+
+    # así también funciona:
+    quijote = open('quijote.txt')
+    print("NUEVO, NUEVO")
+    for linea in quijote:
+        print(linea[:-1]) # para eliminar el \n
     quijote.close()
 
     quijote = open('quijote.txt')
