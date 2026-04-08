@@ -16,6 +16,8 @@ class CuentaCorriente:
     def saldo(self, valor):
         self.__saldo = valor
 
+    # IMPORTANTE: No se puede definir un getter si previamente no se ha definido un setter sobre el mismo atributo
+
     # Un atributo de clase también puede (y debe) de ser privado
     @classmethod
     def verRetenciones(cls):
