@@ -1,6 +1,7 @@
 # Para instalar el conector con mysql en una ubuntu o derivada:
 # sudo apt install python3-mysql.connector
 # En un proyecto con un entorno virtual instalamos directamente con el gestor de paquetes y pip
+# el paquete a instalar es mysql-connector-python. Elegir la versión 9.6.0, la 9.7.0 da problemas
 import mysql.connector
 
 #Siempre, al igual que con los ficheros, tenemos que capturar las excepciones

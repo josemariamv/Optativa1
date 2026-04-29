@@ -31,6 +31,11 @@ def borrarTracks(connect, artista, album):
                 for track in resultado:
                     # print(track)
                     sql = "DELETE FROM InvoiceLine WHERE TrackId = " + str(track[0])
+                    # rowcount nos devuelve el número de filas afectadas por la instrucción
+                    # No funciona en select. solo en delete, update...
+                    # si lo miras después de un select o no puede determinar cuantas devuelve un -1
+                    # si haces un update por un valor igual al que ya existe no lo cuenta
+                    print("Filas afectadas por el primer delete: ", cursor.rowcount);
                     # print(sql)
                     cursor.execute(sql)
                     sql = "DELETE FROM PlaylistTrack WHERE TrackId = " + str(track[0])
