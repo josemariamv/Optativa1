@@ -53,3 +53,15 @@ try:
     connect.close()
 except mysql.connector.Error as err:
     print(err)
+
+from contextlib import closing
+# usando el gestor de contexto closing y un bucle with podemos cerrar de forma automática la conexión y el cursor
+try:
+    with closing(mysql.connector.connect(user='josemaria', password='abc123', host='localhost', database='pokemondb')) as connect:
+        with closing(connect.cursor()) as cursor:
+            sql = ("SELECT nombre, peso, altura from pokemon")
+            cursor.execute(sql)
+            tupla = cursor.fetchall()
+            print(tupla)
+except mysql.connector.Error as err:
+    print(err)
