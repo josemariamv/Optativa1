@@ -17,7 +17,7 @@ try:
     quijote = open('quijote.txt')
     linea=quijote.readline()
     while linea !="":
-        print(linea)
+        print(linea, end="")
         linea = quijote.readline()
     quijote.close()
 
@@ -29,13 +29,6 @@ try:
     quijote.close()
 
     quijote = open('quijote.txt')
-    linea=quijote.readline()
-    while linea !="":
-        print(linea, end="")
-        linea = quijote.readline()
-    quijote.close()
-
-    quijote = open('quijote.txt')
     caracter=quijote.readline(1)
     while caracter !="":
         print(caracter)
@@ -43,16 +36,21 @@ try:
     quijote.close()
 
     quijote = open('quijote.txt')
-    caracter=quijote.readline(1)
+    caracter=quijote.readline(3)
     while caracter !="":
-        print(caracter, end="")
-        caracter=quijote.readline(1)
+        print(caracter)
+        caracter=quijote.readline(3)
     quijote.close()
 
     quijote = open('quijote.txt')
     lista_lineas=quijote.readlines()
     print(lista_lineas)
     quijote.close()
+
+    with open("fquijote.txt") as cursor:
+        lista = cursor.readLines()
+        print(lista)
+
 except:
     print("Error")
 
