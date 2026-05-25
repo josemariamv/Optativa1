@@ -65,3 +65,5 @@ try:
             print(tupla)
 except mysql.connector.Error as err:
     print(err)
+
+    # cursor.fetchone() para cuando sabemos que devuelve un único valor (claves primarias)
