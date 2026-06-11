@@ -1,85 +1,70 @@
-# detecta los votos duplicados en la misma lista (fraudulentos)
-def duplicados(lista):
-    validos = set()
-    repes = set()
-    for voto in lista:
-        if voto in validos:
-            repes.add(voto)
-        # el else sobra porque un conjunto no admite duplicados, pero así se entiende mejor
-        else:
-            validos.add(voto)
-    return repes, validos
+# Para instalar el conector con mysql en una ubuntu o derivada:
+# sudo apt install python3-mysql.connector
+# En un proyecto con un entorno virtual instalamos directamente con el gestor de paquetes y pip
+# el paquete a instalar es mysql-connector-python. Elegir la versión 9.6.0, la 9.7.0 da problemas
+import mysql.connector
 
-def contarVotos(votosER, votosCP):
-    # El censo son los posibles pisos. Como son fijos los podemos poner en un conjunto
-    # Sería fácil construirlo desde el programa si fuese variable
-    # Prueba a hacerlo tú con una función
-    censo = {"0A","0B","1A","1B","2A","2B","3A","3B", "4A", "4B"}
+#Siempre, al igual que con los ficheros, tenemos que capturar las excepciones
+try:
+	#conectamos con la base de datos proporcionando usuario, password, máquina donde está el gestor
+    connect = mysql.connector.connect(user='josemaria', password='abc123', host='localhost')
+    #cursor es un objeto que nos permitirá manipular la conexión que hemos abierto
+    cursor = connect.cursor()
+    # ejecutamos una query escribiéndola en un string al igual que la lanzaríamos desde consola
+    cursor.execute("SHOW DATABASES")
+    # Mostramos una a una las filas que nos devuelve el select
+    for fila in cursor:
+        print(fila)
+    # cerramos el cursor primero y la conexión después
+    cursor.close()
+    connect.close()
+except mysql.connector.Error as err:
+    print(err)
 
-    # detectamos los posibles repes. En validos estarían los restantes
-    repesER, validosER = duplicados(votosER)
-    repesCP, validosCP = duplicados(votosCP)
+try:
+    # añadimos ahora la base de datos en la conexión
+    connect = mysql.connector.connect(user='josemaria', password='abc123', host='localhost', database='pokemondb')
+    cursor = connect.cursor()
 
-    # Pisos inexistentes (no están en el censo)
-    # la unión de los válidos menos el censo
-    inexistentes = (validosER | validosCP) - censo
+    sql = ("SELECT nombre, peso, altura from pokemon")
+    # sql = ("SELECT * from pokemon") # así no funcionaría...
+    cursor.execute(sql)
 
-    # votos fraudulentos totales
-    # la unión de los repes de las dos listas mas los inexistentes
-    fraudulentos = repesER | repesCP | inexistentes
+    # En esta forma podemos ver solo los campos del select que nos interesen
+    for (nombre, peso, altura) in cursor:
+        print(nombre, "-", peso, "-", altura)
 
-    # Limpiamos los fraudulentos haciendo la resta: validos - fraudes
-    validosER = validosER - fraudulentos
-    validosCP = validosCP - fraudulentos
+    cursor.close()
+    connect.close()
+except mysql.connector.Error as err:
+    print(err)
 
-    # Ahora detectamos los erroneos (votaron a ambas) así que hacemos la intersección
-    erroneos = validosER & validosCP
+try:
+    connect = mysql.connector.connect(user='josemaria', password='abc123', host='localhost', database='pokemondb')
+    cursor = connect.cursor()
+    sql = ("SELECT nombre, peso, altura from pokemon")
+    cursor.execute(sql)
 
-    # y los quitamos también para obtener los finalmente válidos
-    validosER = validosER - erroneos
-    validosCP = validosCP - erroneos
+    # De esta última forma guardamos el resultado del select completo en una estructura
+    tupla = cursor.fetchall()
+    print(tupla)
 
-    # Abstenciones: el censo menos los válidos, los erroneos y los fraudulentos
-    abstenciones = censo - validosER - validosCP - erroneos - fraudulentos
+    cursor.close()
+    connect.close()
+except mysql.connector.Error as err:
+    print(err)
 
-    # contamos los votos fraudulentos y erroneos
-    numFraudes = 0
-    for v in votosER:
-        if v in fraudulentos:
-            numFraudes += 1
-    for v in votosCP:
-        if v in fraudulentos:
-            numFraudes += 1
+from contextlib import closing
+# usando el gestor de contexto closing y un bucle with podemos cerrar de forma automática la conexión y el cursor
+try:
+    with closing(mysql.connector.connect(user='josemaria', password='abc123', host='localhost', database='pokemondb')) as connect:
+        with closing(connect.cursor()) as cursor:
+            sql = ("SELECT nombre, peso, altura from pokemon")
+            cursor.execute(sql)
+            tupla = cursor.fetchall()
+            print(tupla)
+except mysql.connector.Error as err:
+    print(err)
 
-    numErrores   = len(erroneos) * 2  # uno por cada lista
-
-    # como en el enunciado no está muy claro podríamos contarlos solo una vez, sin ver cuantas se repiten y estaría bien
-    # numFraudes = len(fraudulentos)
-    # numErrores = len(erroneos)
-
-    # mostramos los resultados
-    nER = len(validosER)
-    nCP = len(validosCP)
-    if nER == 0 and nCP == 0:
-        resultado = "No hay ningún voto válido."
-    elif nER == nCP:
-        resultado = f"Escalera Republicana empata a {nER} votos con Comunidad Patriota."
-    elif nER > nCP:
-        resultado = (f"Escalera Republicana gana con {nER} votos válidos.\n"
-                     f"Comunidad Patriota obtiene {nCP} votos válidos.")
-    else:
-        resultado = (f"Comunidad Patriota gana con {nCP} votos válidos.\n"
-                     f"Escalera Republicana obtiene {nER} votos válidos.")
-
-    print(f"Censo electoral: {len(censo)} viviendas")
-    print(f"Abstenciones: {len(abstenciones)}")
-    print(f"Votos fraudulentos: {numFraudes}")
-    print(f"Votos erróneos: {numErrores}")
-    print(resultado)
-
-
-# Estos son los votos que aparecen en el enunciado
-ER = ["0A", "0B", "3B", "1B", "4B"]
-CP = ["2A", "1A", "5B", "0B", "2B", "2A", "4A", "2A", "3C"]
-
-contarVotos(ER, CP)
+# cursor.fetchone() para cuando sabemos que devuelve un único valor (claves primarias)
+# poner ejemplo!
