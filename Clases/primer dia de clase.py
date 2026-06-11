@@ -42,6 +42,11 @@ print(potencia)
 # también así
 print(4**2)
 
+# raicee cuadradas
+print(4 ** 0.5)
+import math
+print(math.sqrt(4))
+
 # convirtiendo entre tipos
 precio_truncado = int(precio)
 print(precio_truncado)

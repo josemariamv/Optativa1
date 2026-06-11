@@ -10,6 +10,11 @@ from random import randint, shuffle, choice
 # En este caso prescindo del prefijo
 print(randint(1,6))
 
+from math import sqrt
+print(sqrt(4))
+# otra forma de calcular la raiz cuadrada
+print(4**0.5)
+
 # Podemos personalizar el nombre del módulo
 import math as mates
 print(mates.pi)
